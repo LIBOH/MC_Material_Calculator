@@ -1,9 +1,11 @@
 import os
 from typing import Any
 
+from colorama import Fore
+
 
 def _notify(func_name: str, entry: Any) -> None:
-    print(f'{func_name} -> {entry}')
+    print(f'{Fore.BLUE}{func_name} -> {Fore.GREEN}{entry}')
 
 
 def _modify_last_line(file_path: str, modify_str: str):
@@ -17,8 +19,8 @@ def _modify_last_line(file_path: str, modify_str: str):
                 break
             offset *= 2
 
-    last_line[-3] = modify_str
     _notify('_modify_last_line', repr(f'{last_line[-3]} >> {modify_str}'))
+    last_line[-3] = modify_str
     new_str = ''.join(last_line)
     return new_str
 
