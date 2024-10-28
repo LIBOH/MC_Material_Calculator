@@ -14,7 +14,7 @@ getcontext().rounding = ROUND_UP
 
 INITIAL_COLOR = Fore.BLUE
 INNER_COLOR = Fore.YELLOW
-SPACE_COUNT = 30
+SPACE_COUNT = 35
 
 iterate_count_map = defaultdict(int)
 same_material = set()
@@ -80,11 +80,11 @@ def _master_information_output_unit(material_name: str, material_quantity: int, 
                                     stacks: int, subportion: int, remainder: int, _inner_flag: bool):
     if not _inner_flag:
         print(
-                f'{INITIAL_COLOR}{material_name}: {material_quantity} = {stack_count} x {stacks} + {subportion} ... {remainder}'
+                f'  {INITIAL_COLOR}{material_name}: {material_quantity} = {stack_count} x {stacks} + {subportion} ... {remainder}'
         )
     else:
         print(
-                f'{INNER_COLOR}{material_name}: {material_quantity} = {stack_count} x {stacks} + {subportion} ... {remainder}'
+                f'  {INNER_COLOR}{material_name}: {material_quantity} = {stack_count} x {stacks} + {subportion} ... {remainder}'
         )
 
 
@@ -150,7 +150,6 @@ def _calculate_material_needed(block: Block, required_quantity: int, already_hel
 
 def main(block_requires: str) -> None:
     RequireData = namedtuple('RequireData', ('block_required', 'block_required_quantity', 'already_held_quantity'))
-    # block_requires = input(f'{Fore.GREEN}The material than you required: ')
     # 红石中继器 60 10, 红石比较器 60 10, 红石粉 66 1
     remove_empty_str = lambda text_list: [t for t in text_list if t]
 
