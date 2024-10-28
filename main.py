@@ -8,7 +8,9 @@ IN_TITLE = Fore.LIGHTGREEN_EX + '[In]:  ' + Fore.LIGHTGREEN_EX
 ERROR_TITLE = Fore.RED + '[ERROR]: '
 
 requires_tips = lambda: print(f'\n{OUT_TITLE}Enter "q" / "quit" to quit.'
-                              '{OUT_TITLE}Enter "-add" to switch to Add mode.')
+                              f'\n{OUT_TITLE}Enter "-add" to switch to Add mode.'
+                              f'\n{OUT_TITLE}Example: 红石粉 64 4'
+                              '<Use "|" to split different block>')
 add_block_tips = lambda: print(f'\n{OUT_TITLE}Enter "q" / "quit" to quit.'
                                f'\n{OUT_TITLE}Example: oak_wood-({{"outputQty": 3, "橡木原木": 4}},)-橡木-建筑方块. '
                                '<Use "|" to split different block>')

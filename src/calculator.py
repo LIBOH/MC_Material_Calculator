@@ -154,7 +154,7 @@ def main(block_requires: str) -> None:
     remove_empty_str = lambda text_list: [t for t in text_list if t]
 
     def block_require_datas():
-        for _require_data in block_requires.split(','):
+        for _require_data in block_requires.split('|'):
             yield RequireData(*remove_empty_str(_require_data.strip().split(' ')))
 
     for data in block_require_datas():
