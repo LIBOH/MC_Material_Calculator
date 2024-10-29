@@ -10,14 +10,15 @@ ERROR_TITLE = Fore.RED + '[ERROR]: '
 
 def _requires_tips():
     print(f'\n{OUT_TITLE}Enter "q" / "quit" to quit.'
-          f'\n{OUT_TITLE}Enter "-add" to switch to Add mode.'
-          f'\n{OUT_TITLE}Example: 红石粉 64 4'
+          f'\n{OUT_TITLE}Enter "-a" will switch to Add mode.'
+          f'\n{OUT_TITLE}Example: 红石粉 64 4 | ... '
           '<Use "|" to split different block>')
 
 
 def _add_block_tips():
     print(f'\n{OUT_TITLE}Enter "q" / "quit" to quit.'
-          f'\n{OUT_TITLE}Example: oak_wood-({{"outputQty": 3, "橡木原木": 4}},)-橡木-建筑方块. '
+          f'\n{OUT_TITLE}Enter "-c" will switch to Check mode.'
+          f'\n{OUT_TITLE}Example: oak_wood-({{"outputQty": 3, "橡木原木": 4}},)-橡木-建筑方块 | ... '
           '<Use "|" to split different block>')
 
 
@@ -29,12 +30,14 @@ def main():
         match block_requires:
             case 'q' | 'quit':
                 quit(0)
-            case '-add':
+            case '-a':
                 while True:
                     _add_block_tips()
                     block_info = input(f'{IN_TITLE}The information of block: ')
                     if block_info in ['q', 'quit']:
                         quit(0)
+                    elif block_info == '-c':
+                        break
                     try:
                         main_add_block(block_info)
                     except TypeError:
